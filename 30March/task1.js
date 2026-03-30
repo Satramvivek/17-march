@@ -78,3 +78,52 @@ let data = "apple,banana,mango";
 let fruitss = data.split(",");
 console.log(fruitss);
 
+
+let firstName = "  VIVEK ";
+let lastName = "satram";
+let email = "VIVEK123@GMAIL.COM";
+let message = "He said \"Welcome to our site\"";
+
+// 1. Trim whitespace
+firstName = firstName.trim();
+
+// 2. Convert case
+firstName = firstName.toLowerCase();
+lastName = lastName.toLowerCase();
+
+// 3. Concatenation (Full Name)
+let fullName = firstName + " " + lastName;
+
+// 4. Length check (password example)
+let password = "vivek@123";
+console.log("Password Length:", password.length);
+
+// 5. Escape characters
+console.log("Message:", message);
+
+// 6. Breaking long string
+let info = "Welcome " + fullName +
+           " to our platform. Enjoy learning JavaScript!";
+console.log(info);
+
+// 7. Find substring
+console.log("Is Gmail:", email.toLowerCase().includes("@gmail"));
+
+// 8. String search
+console.log("Position of 'JavaScript':", info.indexOf("JavaScript"));
+
+// 9. Replace text
+let status = "Payment failed";
+status = status.replace("failed", "successful");
+console.log("Status:", status);
+
+// 10. Access character
+console.log("First letter:", fullName[0]);
+
+// 11. String comparison
+let loginEmail = "vivek123@gmail.com";
+console.log("Login Match:", email.toLowerCase() === loginEmail);
+
+// 12. String as object
+let strObj = new String("hello");
+console.log("Type:", typeof strObj);
