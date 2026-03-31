@@ -1,113 +1,131 @@
-// 1. Named Function
-function namedFunction() {
-    console.log("1. Named Function");
+// ==========================
+// 1. Named Function + Default Parameter + Return
+function greet(name = "Guest") {
+    return "Hello " + name;
 }
-namedFunction();
+console.log(greet("Vivek"));
+console.log(greet());
 
-
-// 2 & 3. Anonymous + Function Expression
-let funcExp = function () {
-    console.log("2 & 3. Anonymous + Function Expression");
-};
-funcExp();
-
-
-// 4. Arrow Function
-let arrowFunc = (a, b) => {
+// ==========================
+// 2. Anonymous Function (stored in variable)
+let add = function(a, b) {
     return a + b;
 };
-console.log("4. Arrow Function:", arrowFunc(2, 3));
+console.log("Sum:", add(5, 3));
 
+// ==========================
+// 3. Function Expression (use cases)
+let multiply = function(a, b) {
+    return a * b;
+};
+console.log("Multiply:", multiply(4, 2));
 
-// 5. IIFE
-(function () {
-    console.log("5. IIFE executed");
+// ==========================
+// 4. Arrow Function (ES6)
+let square = (num) => num * num;
+console.log("Square:", square(5));
+
+// ==========================
+// 5. IIFE (Immediately Invoked Function)
+(function() {
+    console.log("IIFE Executed");
 })();
 
-
+// ==========================
 // 6. Callback Function
-function greet(name, callback) {
-    console.log("Hello " + name);
-    callback();
+function processUser(name, callback) {
+    callback(name);
 }
-greet("Vivek", function () {
-    console.log("6. Callback executed");
+processUser("Vivek", function(name) {
+    console.log("Callback Hello " + name);
 });
 
-
+// ==========================
 // 7. Constructor Function
-function Person(name) {
+function Person(name, age) {
     this.name = name;
+    this.age = age;
 }
-let p1 = new Person("Vivek");
-console.log("7. Constructor Function:", p1.name);
+let p1 = new Person("Vivek", 22);
+console.log(p1);
 
-
+// ==========================
 // 8. Async Function
-async function asyncFunc() {
-    return "8. Async Function result";
+async function fetchData() {
+    return "Data received";
 }
-asyncFunc().then(res => console.log(res));
+fetchData().then(res => console.log(res));
 
-
+// ==========================
 // 9. Generator Function
 function* generatorFunc() {
-    yield "9. Generator - Step 1";
-    yield "Step 2";
+    yield 1;
+    yield 2;
+    yield 3;
 }
 let gen = generatorFunc();
 console.log(gen.next().value);
 console.log(gen.next().value);
 
-
+// ==========================
 // 10. Recursive Function
 function factorial(n) {
     if (n === 1) return 1;
     return n * factorial(n - 1);
 }
-console.log("10. Recursive Function:", factorial(5));
+console.log("Factorial:", factorial(5));
 
-
+// ==========================
 // 11. Higher-Order Function
-function operate(a, b, fn) {
-    return fn(a, b);
+function operate(a, b, func) {
+    return func(a, b);
 }
-console.log("11. Higher-Order:", operate(5, 3, (x, y) => x + y));
+console.log("Higher Order:", operate(3, 4, add));
 
-
+// ==========================
 // 12. Nested Function
 function outer() {
     function inner() {
-        console.log("12. Nested Function");
+        console.log("Inner Function");
     }
     inner();
 }
 outer();
 
-
+// ==========================
 // 13. Pure Function
 function pureAdd(a, b) {
     return a + b;
 }
-console.log("13. Pure Function:", pureAdd(4, 6));
+console.log("Pure:", pureAdd(2, 3));
 
-
+// ==========================
 // 14. Default Parameter Function
-function multiply(a, b = 2) {
-    return a * b;
+function power(base, exponent = 2) {
+    return base ** exponent;
 }
-console.log("14. Default Param:", multiply(5));
+console.log("Power:", power(3));
 
-
+// ==========================
 // 15. Rest Parameter Function
-function sum(...numbers) {
-    return numbers.reduce((a, b) => a + b);
+function sumAll(...nums) {
+    return nums.reduce((acc, val) => acc + val, 0);
 }
-console.log("15. Rest Param:", sum(1, 2, 3, 4, 5));
+console.log("Rest Sum:", sumAll(1, 2, 3, 4));
+
+// ==========================
+// Function Expression Use Cases
+
+// 1. Storing in Variable
+let greetUser = function() {
+    console.log("Hello User");
+};
+greetUser();
+
+// 2. Callback Function
+setTimeout(function() {
+    console.log("Executed after 2 seconds");
+}, 2000);
 
 
-// Extra: Return Statement Example
-function returnExample(a, b) {
-    return a + b;
-}
-console.log("Return Example:", returnExample(10, 20));
+
